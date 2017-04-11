@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="js/menu.js"></script>
+</head>
+
+<body></body>
+
+<script type="text/javascript">
+
+	createPage( {
+		title: "Solid2 Test Portal",
+		header: "Solid TV tests",
+		desc: "This test suite is for the Solid2 API.",
+		menu: [
+			{ title: "Solid2 Playback",      command: loadPage( 'solid_2_playback.html' ), },
+			{ title: "Solid2 Video Scaling", command: loadPage( 'solid_2_video_scaling.html' ), },
+			{ title: "Solid2 Network",       command: loadPage( 'solid_2_network.html' ), },
+			{ title: "Solid2 MediaBrowser",  command: loadPage( 'solid_2_media_browser.html' ), },
+			{ title: "Solid2 Unit Tests",    command: loadPage( 'tests/index.html?noglobals&hidepassed' ), },
+		],
+	} ) ;
+
+</script>
+
+</html>
