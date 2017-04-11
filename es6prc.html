@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>es6</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 看看for循环中的let和var的区别
+		var a = [];
+		for (let i = 0; i < 10; i++) {
+		  a[i] = function () {
+		    console.log(i);
+		  };
+		}
+		a[6](); // 6，如果let改为var，则结果为10
+// 变量i是let声明的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，最后输出为6
+		console.log(a);
+
+		for (let i = 0; i < 3; i++) {
+		  let i = 'abc';
+		  console.log(i);
+		}
+		// abc
+		// abc
+		// abc		
+// 上面代码输出了3次abc，这表明函数内部的变量i和外部的变量i是分离的。这就是for循环的一个特别之处，就是循环语句部分是一个父作用域，而循环体内部是一个单独的子作用域。
+
+
+// 下面看看为什么需要块级作用域
+// 第一种场景，内层变量可能会覆盖外层变量，原因在于变量提升，导致内层的tmp变量覆盖了外层的tmp变量。还有一种场景是，像for里面计数i泄漏为全局变量。
+		var tmp = new Date();
+
+		function f() {
+		  console.log(tmp);
+		  if (false) {
+		    var tmp = 'hello world';
+		  }
+		}
+
+		f(); // undefined
+
+
+//ES5只有全局作用域和函数作用域，而没有块级作用域，这也就是为什么下面的代码改为var则输出值为10
+//下面是外层不受内层影响，如果用var，则输出值为10
+		function f1() {
+		  let n = 5;
+		  if (true) {
+		    let n = 10;
+		  }
+		  console.log(n); // 5
+		}
+		f1();
+
+
+//不允许在相同作用域内重复声明同一个变量，内层作用域可以定义外层作用域的同名变量，作用域可以任意嵌套。
+		{{
+			let abc = 'hello';
+			{
+				let abc = 'world';
+			}
+		}}
+
+
+//函数声明与块级作用域
+//ES5规定函数只能在顶层作用域和函数作用域之中声明，不能在块级作用域声明。比如在if中声明一个函数在es5中是非法的，但浏览器为了兼容旧代码并不会报错。
+
+//考虑到环境导致的行为差异太大，应该避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。
+
+function fa() { console.log('I am outside!'); }
+
+ {
+  // if (false) {
+    // 重复声明一次函数fa
+    function fa() { console.log('I am inside!'); }
+  // }
+
+  fa();
+}
+
+
+//注意const声明一个只读的常量，一旦声明，常量的值就不能改变，否则会报错。而且const一旦声明，就必须立即初始化，不能留到以后赋值，只声明不赋值就会报错。const也是只在块级作用域内有效，也是不提升，同样存在暂时性死区，也不能重复声明。
+//而const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址不得改动。对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指针，const只能保证这个指针是固定的，至于它指向的数据结构是不是可变的，就完全不能控制了。
+{
+	const foo = {};
+
+	// 为 foo 添加一个属性，可以成功
+	foo.prop = 123;
+	foo.prop // 123
+	console.log(foo);
+	// 将 foo 指向另一个对象，就会报错
+	// foo = {};  TypeError: "foo" is read-only
+}
+
+{
+	const a = [];
+	a.push('Hello'); // 可执行
+	console.log(a);
+	a.length = 0;    // 可执行
+	console.log(a);
+	// a = ['Dave'];    报错
+}
+//如果真的想将对象冻结，应该使用Object.freeze方法。
+{
+	const foo = Object.freeze({});
+
+	// 常规模式时，下面一行不起作用；
+	// 严格模式时，该行会报错
+	foo.prop = 123;
+	console.log(foo);
+}
+
+
+//关于顶层对象，在浏览器环境指的就是window对象，在node中指的是global对象，es5之中，顶层对象的属性和全局变量是等价的，顶层对象的属性赋值和全局变量的赋值是同一件事。那么ES6改变了这一点，一方面为了保持兼容性，var命令和function命令声明的全局变量，依旧是顶层对象的属性；另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。也就是说，从ES6开始，全局变量将逐步与顶层对象的属性脱钩。
+	var dinga = 12345;
+	console.log(window.dinga);//12345
+	let dingb = 123;
+	console.log(window.dingb);//undefined
+//上面代码中，全局变量a由var命令声明，所以它是顶层对象的属性；全局变量b由let命令声明，所以它不是顶层对象的属性，返回undefined。
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

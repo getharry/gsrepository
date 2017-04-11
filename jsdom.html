@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+		}
+	</style>
+	<script type="text/javascript">
+		onload = function () {
+			//注意加上onload
+			var divNode = document.getElementById('div1');
+			var styleObj = divNode.currentStyle || getComputedStyle(divNode,null);
+			console.log(styleObj.width); //100px
+			// var wh = divNode.style.width;如果不是内联，这样获取不到。
+			// console.log(wh);
+			divNode.style.width = '500px';
+			console.log(styleObj.width); //500px
+
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
