@@ -26,4 +26,26 @@ ReactDOM.render(
 1. 记录solidui的源码问题
 1. 入门高级JavaScript
 
+## SolidUI源码细节
+- 发现声明中new作用于函数，就会执行
+```javascript
+	 var app = new function(){
+	 	console.log('running...');
+	 }
+	 window.app = app;
+```
+
+```javascript
+	window.app = new function(){
+		this.init = new function(){
+			console.log('being');
+		};
+		//上面如果不是new，则不会执行啊
+		console.log('appbeing');
+	};
+	// app.init();
+```
+
+
+
 
