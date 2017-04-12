@@ -45,6 +45,18 @@ ReactDOM.render(
 	};
 	// app.init();
 ```
+- 引入的js脚本一般用一个立即执行的匿名函数包裹，在里面声明的东西挂到window上面是非常必要的，这样才能全局调用
+```javascript
+(function(){
+	"use strict";
+	var loadPage = function( target ){
+		return function(){
+			window.location.assign( target );
+		};
+	};
+	window.loadPage = loadPage;
+})();
+```
 
 
 
