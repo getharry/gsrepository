@@ -1,3 +1,4 @@
 sublime自适应缩进的粘贴
 ctrl+shift+v
 Alt+F3：选择所有相同的词
+ctrl+alt+上下方向键：添加多行光标
