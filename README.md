@@ -87,6 +87,7 @@ ReactDOM.render(<Input/>, document.body);
 - Mounting已插入真实dom
 - Updating正在被重新渲染
 - Unmounting已移出真实dom
+
 基本上每种状态有两种处理函数，will函数在进入状态之前调用，did函数在进入状态之后调用，三种状态共五种处理函数。
 - componentWillMount()
 - componentDidMount()
