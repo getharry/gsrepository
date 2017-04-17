@@ -83,11 +83,19 @@ var Input = React.createClass({
 ReactDOM.render(<Input/>, document.body);
 ```
 #### 组件的生命周期
-- 组件的声明周期分为三个状态：
--- Mounting
--- Updating
--- Unmounting
+组件的声明周期分为三个状态：
+- Mounting已插入真实dom
+- Updating正在被重新渲染
+- Unmounting已移出真实dom
+基本上每种状态有两种处理函数，will函数在进入状态之前调用，did函数在进入状态之后调用，三种状态共五种处理函数。
+- componentWillMount()
+- componentDidMount()
+- componentWillUpdate(sth,sth)
+- componentDidUpdate(sth,sth)
+- componentWillUnmount()
 
+## React英文文档
+[React官方文档地址](https://facebook.github.io/react/)
 
 ## React 的优点
 - 组件模式：代码复用和团队分工
