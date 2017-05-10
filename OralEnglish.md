@@ -21,7 +21,12 @@
 - The main obstacle is how to...主要困难是如何。。。
 - We could migrate some functions and create some new for our own.
 - Has the installation finished?安装完了？
+- The higher we soar the smaller we appear to those who cannot fly.
 
+## Actual Combat
+- 
+- I am good at HTML,CSS,CSS3 and HTML5,jQuery.Also,I have some experience with original javascript,and I also have some knowledge of ES6,but as you know,the syntax of JavaScript is optional,the framework of this area is too more,I can not say good at javascript easily.These years,react and angular are very popular in the world.But recently,I am foucing on a new framework named vue.Because vue is very popular in China.Vue is a progressive framework for building user interfaces.Unlike other monolithic frameworks,the core library of vue is focused on the view layer only,and it is very easy to pick up.
+- I want to ask,does our project need to use webpack? 
 
 
 
