@@ -10,6 +10,8 @@
 - I'm very glad to meet everybody here!
 - Life was a funny thing that occurred on the way to the grave.生命是在通往坟墓之路上发生的一件趣事儿。
 - your cooperation would be highly appreciated.你的合作将不胜感激。
+- The higher we soar the smaller we appear to those who cannot fly.
+- The day is near when your burden will become your gift,and your sufferings will light up your path.终有一天，你的负担将变成你的礼物，你受的苦将照亮你的路。泰戈尔。
 
 
 ## 和项目接轨的英语
@@ -21,7 +23,6 @@
 - The main obstacle is how to...主要困难是如何。。。
 - We could migrate some functions and create some new for our own.
 - Has the installation finished?安装完了？
-- The higher we soar the smaller we appear to those who cannot fly.
 
 ## Actual Combat
 - 
