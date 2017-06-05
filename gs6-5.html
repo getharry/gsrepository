@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.we,.me{
+			width: 200px;
+			height: 200px;
+			background: yellow;
+			margin-top: 50px;
+		}
+		.we.me{
+			background: green;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="we me">we me,have this two class names at the same time</div>
+	<div class="we">we</div>
+	<div class="me">me</div>
+
+	<script type="text/javascript">
+
+		// function Person(name){
+		// 	this.name = name;
+		// }
+		// Person.prototype = {xingge:'nice'}
+		// var man = new Person('leo')
+		// var woman = new Person('alice')
+
+
+
+		//下面是利用apply改变this指向
+		// 　　var x = 0;
+		// 　　function test(){
+		// 　　　　alert(this.x);
+		// 　　}
+		// 	test(); //0
+		// 　　var o={};
+		// 　　o.x = 1;
+		// 　　o.m = test;
+		// 　　o.m.apply(o); //1
+
+
+
+		// function Shape() {
+		// 	this.x = 0 ;
+		// 	this.y = 0 ;
+		// }
+		// Shape.prototype.move = function(x,y){}
+
+
+		var a = function (){
+			console.log('11111');
+		}
+		var b = a();//可执行
+		console.log(b);//undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
