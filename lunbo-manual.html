@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      @keyframes loop {
+        0%{
+          border: 5px solid blue;
+        }
+        100%{
+          border: 5px solid red;
+        }
+      }
+      @keyframes loop2 {
+        0%{
+          opacity: 0;
+        }
+        100%{
+          opacity: 1;
+        }
+      }
+      .lunbo-container{
+        margin: 100px auto;
+        position: relative;
+        overflow: hidden;
+        width: 153px;
+        height: 75px;
+        border: 5px solid yellow;
+        animation: loop 5s linear 2s infinite alternate;
+      }
+      .move-box{
+        position: absolute;
+        left: 0;
+        width: 612px;
+        height: 75px;
+      }
+      .move-box img{
+        width: 153px;
+        height: 75px;
+      }
+      .arrow-left,.arrow-right{
+        position: absolute;
+        bottom: 38px;
+        cursor: pointer;
+      }
+      img:nth-child(1){
+        background: rgba(255,0,0,.3);
+      }
+      img:nth-child(2){
+        background: rgba(0,255,0,.3);
+      }
+      img:nth-child(3){
+        background: rgba(0,0,255,.3);
+      }
+      img:nth-child(4){
+        background: rgba(0,0,0,.3);
+      }
+
+      .css3-test1{
+        width: 60px;
+        height: 40px;
+        background: #92B901;
+        border-radius: 5px;
+        position: relative;
+        animation: laihui 5s 3;
+      }
+      @keyframes laihui {
+        0%{
+          transform: rotate(0deg);
+          left: 0px;
+        }
+        25%{
+          transform: rotate(20deg);
+          left: 0px;
+        }
+        50%{
+          transform: rotate(0deg);
+          left: 500px;
+        }
+        55%{
+          transform: rotate(0deg);
+          left: 500px;
+        }
+        70%{
+          transform: rotate(0deg);
+          left: 500px;
+          background: #1ec7e6;
+        }
+        100%{
+          transform: rotate(-360deg);
+          left: 0px;
+        }
+      }
+      @keyframes loop3 {
+        0%{
+          left:
+        }
+      }
+      .shenglue{
+        width: 150px;
+        height: 150px;
+        background: orange;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:7;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lunbo-container">
+      <div class="move-box" id="movingbox" style="left:0">
+        <img src="images/logo_1.png"><img src="images/logo_3.png"><img src="images/logo_1.png"><img src="images/logo_3.png">
+      </div>
+      <div class="arrow-left" id="arrleft" style="left:0;">&lt;</div>
+      <div class="arrow-right" id="arrright" style="right:0;">&gt;</div>
+    </div>
+    <div class="css3-test1"></div>
+    <h3>下面练习设置text-overflow在多行情况下生效</h3>
+    <div class="shenglue">
+      今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉今朝有酒今朝醉
+    </div>
+    <script type="text/javascript">
+      var boxNodeOuter = document.getElementsByClassName('lunbo-container')[0];
+      var boxNode = document.getElementById('movingbox');
+      var leftNode = document.getElementById('arrleft');
+      var rightNode = document.getElementById('arrright');
+
+      function getMoving(len) {
+        var distance = parseInt(boxNode.style.left) + len;
+        console.log(distance);
+        var newD;
+        if(distance <=-612){
+          distance = 0;
+        }
+        if(distance >= 153){
+          distance = -459;
+        }
+        boxNode.style.animation = 'loop2 1s';
+        setTimeout(function() {
+          boxNode.style.animation = '';
+        },1000)
+        boxNode.style.left = distance + 'px';
+      }
+      //下面探索一种动画效果的轮播图
+      // function getMoving(len) {
+      //   var distance = parseInt(boxNode.style.left) + len;
+      //   console.log(distance);
+      //   var newD;
+      //   if(distance <=-612){
+      //     distance = 0;
+      //   }
+      //   if(distance >= 153){
+      //     distance = -459;
+      //   }
+      //   boxNode.style.animation = 'loop3 1s';
+      //   setTimeout(function() {
+      //     boxNode.style.animation = '';
+      //   },1000)
+      //   boxNode.style.left = distance + 'px';
+      // }
+
+      // getMoving(-153);
+      leftNode.onclick = function(){
+        getMoving(-153);
+        console.log('lefting.....');
+      }
+      rightNode.onclick = function(){
+        getMoving(153);
+        console.log('righting.....');
+      }
+      var timer;
+      function play(){
+        timer = setInterval(function(){
+          leftNode.onclick();
+        },2000)
+      }
+      play();
+      boxNodeOuter.onmouseover = function(){
+        clearInterval(timer);
+      }
+      boxNodeOuter.onmouseout = function(){
+        play();
+      }
+      //问题总结
+      //img间距问题，去掉回车就好了
+      //boxNode.style.left一开始获取不到数值，原来是行内样式没有写left
+      //在写css3的animation的keyframes的时候，前面的@符号容易写成两个
+    </script>
+  </body>
+</html>
