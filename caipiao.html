@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.viva{
+			width: 300px;
+			height: 300px;
+			--colr: red;
+			background: var(--colr);
+			/*--foo:if(width>) this.width = 700;*/
+			--foo: console.log('kankankan...');
+		}
+	</style>
+</head>
+<body>
+	<div class="viva">
+		<h3>如果css变量带有单位，则它就不能写成字符串！</h3>
+	</div>
+	<script type="text/javascript">
+		var cai = [];
+		var maxN = 6;
+		for (let i = 0; i < maxN; i++) {
+			let shu = Math.random()*33;
+			// console.log(shu);
+			let shuInt = Math.ceil(shu);
+			if(cai.indexOf(shuInt) == -1){
+				cai.push(shuInt);
+			}else{
+				maxN++;
+			}
+		}
+		var lan = Math.ceil(Math.random()*16);
+		console.log('红色球为：' + cai + '蓝色球为：' + lan);
+
+		const isSupported = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+		if(isSupported){
+			console.log('您的浏览器支持css变量。。。');
+		}else{
+			console.log('不支持');
+		}
+
+		const docStyle = document.documentElement.style;//获取到了页面根元素的节点，也就是html
+
+		document.addEventListener('mousemove', (e) => {
+		  docStyle.setProperty('--mouse-x', e.clientX);
+		  docStyle.setProperty('--mouse-y', e.clientY);
+		});
+
+//RequireJS这个库完全遵循AMD规范实现，所以要去了解AMD规范。。
+//对AMD全称做一个解释的话，翻译为“异步模块定义”，异步的好处是避免阻塞渲染，而且还能实现按需加载
+//RequireJS这个库主要解决了按需加载的问题
+
+
+	</script>
+</body>
+</html>
