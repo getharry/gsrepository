@@ -33,7 +33,7 @@
 		}
 		var lan = Math.ceil(Math.random()*16);
 		console.log('红色球为：' + cai + '蓝色球为：' + lan);
-
+		//2 3 6 14 31 32 3
 		const isSupported = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
 		if(isSupported){
 			console.log('您的浏览器支持css变量。。。');
@@ -43,9 +43,11 @@
 
 		const docStyle = document.documentElement.style;//获取到了页面根元素的节点，也就是html
 
+		var redNodeStyle = document.getElementsByClassName('viva')[0].style;
+
 		document.addEventListener('mousemove', (e) => {
-		  docStyle.setProperty('--mouse-x', e.clientX);
-		  docStyle.setProperty('--mouse-y', e.clientY);
+		  redNodeStyle.setProperty('--mouse-x', e.clientX);
+		  redNodeStyle.setProperty('--mouse-y', e.clientY);
 		});
 
 //RequireJS这个库完全遵循AMD规范实现，所以要去了解AMD规范。。
