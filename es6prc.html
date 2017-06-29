@@ -56,7 +56,7 @@ if(false){
 	var harryhao = 2;
 	let harleo = 3;
 }
-console.log(harleo);//reference错误，遇到这种错误后面程序不会继续执行
+// console.log(harleo);//reference错误，遇到这种错误后面程序不会继续执行
 
 // 下面看看为什么需要块级作用域
 // 第一种场景，内层变量可能会覆盖外层变量，原因在于变量提升，导致内层的tmp变量覆盖了外层的tmp变量。
@@ -92,6 +92,18 @@ console.log(harleo);//reference错误，遇到这种错误后面程序不会继�
 				let abc = 'world';
 			}
 		}}
+//因此不能在函数内部重新声明参数
+function funcanshu(arg){
+	// let arg;//报错..阮一峰说这样会报错，结果我的浏览器也没有报错
+}
+//但是下面这样就不会报错
+function funcanshu2(arg){
+	{
+		let arg;//不报错
+	}
+}
+
+
 
 
 //函数声明与块级作用域
