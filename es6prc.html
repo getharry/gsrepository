@@ -323,7 +323,20 @@ timeout(1000).then((value)=>{
 	console.log(value);
 })
 
-
+// Promise新建后就会立即执行
+// then方法指定的回调函数将在当前脚本所有同步任务执行完才会执行
+let promise2 = new Promise(function(resolve, reject) {
+  console.log('Promise');
+  resolve();
+});
+promise2.then(function() {
+  console.log('Resolved.');
+});
+console.log('Hi!');
+// 结果
+// Promise
+// Hi!
+// Resolved
 
 
 
