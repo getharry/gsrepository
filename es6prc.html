@@ -307,6 +307,7 @@ var promise = new Promise(function(resolve, reject) {
 // then方法用于分别指定resolved和rejected状态的回调函数
 // 两个参数函数都接收Promise对象传出的值作为参数
 // 它的第二个参数是可选的，不一定要提供
+// then方法返回的是一个新的Promise实例，因此可以采用链式写法，then后面可以再调用then
 promise.then(function(value) {
   // success
 }, function(error) {
@@ -340,6 +341,8 @@ console.log('Hi!');
 
 
 
+// 在阮一峰的文章中，他建议总是使用catch方法，
+// 而不要用then方法里面定义的第二个可选的Reject状态的回调函数。
 
 
 
