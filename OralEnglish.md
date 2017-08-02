@@ -12,7 +12,9 @@
 - your cooperation would be highly appreciated.你的合作将不胜感激。
 - The higher we soar the smaller we appear to those who cannot fly.
 - The day is near when your burden will become your gift,and your sufferings will light up your path.终有一天，你的负担将变成你的礼物，你受的苦将照亮你的路。泰戈尔。
-
+- A bungee cord should NEVER be tied to a person before being secured to the bridge.   
+It doesn't matter how bad his English is,if that most basic rule had been followed this tragedy   
+would have been avoided.  
 
 ## 和项目接轨的英语
 - morning早上好 interface design界面设计
